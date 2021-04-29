@@ -11,8 +11,8 @@
   DTS:LocaleID="1062"
   DTS:ObjectName="VPP_Ielāde"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{695888C4-31DD-4E78-94BF-6935C07AFAAD}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{1C94BF11-8AB6-4D90-B454-04986A7B08B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -848,7 +848,8 @@
                       name="test_name" />
                     <externalMetadataColumn
                       refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tag_id]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="4"
                       name="tag_id" />
                     <externalMetadataColumn
                       refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
@@ -1305,8 +1306,9 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
                       name="tag_id" />
                     <externalMetadataColumn
                       refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
-                      dataType="nText"
-                      name="timestamp" />
+                      dataType="dbTime2"
+                      name="timestamp"
+                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
                       dataType="nText"
@@ -1328,7 +1330,7 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
                       name="z" />
                     <externalMetadataColumn
                       refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[created]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="created" />
                     <externalMetadataColumn
                       refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[name]"
@@ -1915,7 +1917,7 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{60296795-3BE2-487B-B858-341665C07776}"
-          SQLTask:SqlStatementSource="truncate table z_locat;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="drop table z_locat;&#xA;&#xA;&#xA;CREATE TABLE [dbo].[z_locat](&#xA;&#x9;[created] [date] NULL,&#xA;&#x9;[name] [nvarchar](max) NULL,&#xA;&#x9;[tag_id] [nvarchar](max) NULL,&#xA;&#x9;[timestamp] [time](7) NULL,&#xA;&#x9;[zone_id] [nvarchar](max) NULL,&#xA;&#x9;[x] [nvarchar](300) NULL,&#xA;&#x9;[y] [nvarchar](300) NULL,&#xA;&#x9;[z] [nvarchar](300) NULL&#xA;) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1966,13 +1968,25 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="178,42"
+          Id="Package\Alter table time, date"
+          TopLeft="531,301" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="959,175" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Datu tipu pieškiršana"
+          TopLeft="668,167" />
+        <NodeLayout
           Size="154,42"
           Id="Package\Ielāde no ODBC"
           TopLeft="338,202" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\Alter table time, date"
-          TopLeft="531,301" />
+          Size="140,42"
+          Id="Package\Notīra tabulu"
+          TopLeft="151,130" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="415,244">
@@ -2007,10 +2021,6 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Notīra tabulu"
-          TopLeft="151,130" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="221,172">
@@ -2045,10 +2055,6 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Datu tipu pieškiršana"
-          TopLeft="668,167" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="648.333333333333,301">
@@ -2083,10 +2089,6 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task"
-          TopLeft="959,175" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="846,188">
@@ -2124,6 +2126,178 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="196,165" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Data Flow Task\Pivot"
+          TopLeft="304,338" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="271,207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,131"
+              Start="0,0"
+              End="84,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.5"
+                    Point2="0,65.5"
+                    Point3="4,65.5" />
+                  <mssgle:LineSegment
+                    End="80,65.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80,65.5"
+                    Point2="84,65.5"
+                    Point3="84,69.5" />
+                  <mssgle:LineSegment
+                    End="84,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task\y un x atdalīšana"
+          TopLeft="518,423" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Pivot Default Output]"
+          TopLeft="355,380">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242.5,43"
+              Start="0,0"
+              End="242.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="238.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="238.5,21.5"
+                    Point2="242.5,21.5"
+                    Point3="242.5,25.5" />
+                  <mssgle:LineSegment
+                    End="242.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Datu tipu pieškiršana">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Datu tipu pieškiršana\OLE DB Destination"
+          TopLeft="271,373" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Datu tipu pieškiršana\OLE DB Source"
+          TopLeft="126,211" />
+        <EdgeLayout
+          Id="Package\Datu tipu pieškiršana.Paths[OLE DB Source Output]"
+          TopLeft="201,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.5,120"
+              Start="0,0"
+              End="155.5,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56"
+                    Point2="0,60"
+                    Point3="4,60" />
+                  <mssgle:LineSegment
+                    End="151.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.5,60"
+                    Point2="155.5,60"
+                    Point3="155.5,64" />
+                  <mssgle:LineSegment
+                    End="155.5,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datu tipu pieškiršana\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datu tipu pieškiršana\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Ielāde no ODBC">
     <LayoutInfo>
@@ -2267,178 +2441,6 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Ielāde no ODBC\Datu ielāde MS SQL">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Datu tipu pieškiršana">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Datu tipu pieškiršana\OLE DB Source"
-          TopLeft="126,211" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Datu tipu pieškiršana\OLE DB Destination"
-          TopLeft="271,373" />
-        <EdgeLayout
-          Id="Package\Datu tipu pieškiršana.Paths[OLE DB Source Output]"
-          TopLeft="201,253">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.5,120"
-              Start="0,0"
-              End="155.5,112.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56"
-                    Point2="0,60"
-                    Point3="4,60" />
-                  <mssgle:LineSegment
-                    End="151.5,60" />
-                  <mssgle:CubicBezierSegment
-                    Point1="151.5,60"
-                    Point2="155.5,60"
-                    Point3="155.5,64" />
-                  <mssgle:LineSegment
-                    End="155.5,112.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Datu tipu pieškiršana\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Datu tipu pieškiršana\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="196,165" />
-        <NodeLayout
-          Size="102,42"
-          Id="Package\Data Flow Task\Pivot"
-          TopLeft="304,338" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="271,207">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84,131"
-              Start="0,0"
-              End="84,123.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.5"
-                    Point2="0,65.5"
-                    Point3="4,65.5" />
-                  <mssgle:LineSegment
-                    End="80,65.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80,65.5"
-                    Point2="84,65.5"
-                    Point3="84,69.5" />
-                  <mssgle:LineSegment
-                    End="84,123.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Data Flow Task\y un x atdalīšana"
-          TopLeft="518,423" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Pivot Default Output]"
-          TopLeft="355,380">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="242.5,43"
-              Start="0,0"
-              End="242.5,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
-                  <mssgle:LineSegment
-                    End="238.5,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="238.5,21.5"
-                    Point2="242.5,21.5"
-                    Point3="242.5,25.5" />
-                  <mssgle:LineSegment
-                    End="242.5,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
