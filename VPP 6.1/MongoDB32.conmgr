@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MongoDB32"
+  DTS:DTSID="{208CD351-6C2D-441E-99C0-0DF525C2B48F}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=MongoDB32;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,2454 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2021 7:42:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ES8NNIH"
+  DTS:CreatorName="DESKTOP-ES8NNIH\RKN"
+  DTS:DTSID="{C7258B4C-C986-458F-921C-CDCA6A796123}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1062"
+  DTS:ObjectName="VPP_Ielāde"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{695888C4-31DD-4E78-94BF-6935C07AFAAD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Testing]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{100CEDBE-EA05-42F8-BFF3-02B2A89A1F83}"
+      DTS:ObjectName="Testing">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Dsn=Testing;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Alter table time, date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DD22A64A-37E5-4CA0-ADD0-AB9B99C308A4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alter table time, date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{60296795-3BE2-487B-B858-341665C07776}"
+          SQLTask:SqlStatementSource="alter table z_locat &#xA;alter column created date;&#xA;&#xA;alter table z_locat &#xA;alter column timestamp time;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8D20BB2F-89EF-4DEF-8AD0-727FBBCA4B90}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[locat_structured]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT tag_id , concat(x , concat('g' , y)) as locat
+      
+      ,[time]
+  FROM [VPP].[dbo].[locat_structured] where test_name = 'BKUS_08_12_2020' and date = '2020-12-08'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{60296795-3BE2-487B-B858-341665C07776}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-ES8NNIH.VPP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[time]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]"
+                      name="time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[locat]"
+                      length="47"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]"
+                      name="locat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag_id]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]"
+                      name="tag"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      name="locat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag_id]"
+                      dataType="wstr"
+                      length="4"
+                      name="tag_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag_id]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag_id]"
+                      name="tag_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[locat]"
+                      name="locat" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[time]"
+                      name="time" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Pivot"
+              componentClassID="Microsoft.Pivot"
+              contactInfo="Pivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Compacts an input data flow by pivoting it on a column value, making it less normalized. The input data should be sorted by the pivot column because a pivot happens each time data in the pivot column changes. Note: duplicate rows will cause this transformation to fail."
+              name="Pivot"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
+                  name="PassThroughUnmatchedPivotKeys">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input]"
+                  hasSideEffects="true"
+                  name="Pivot Default Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input].Columns[tag]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="tag"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input].Columns[time]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="time"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input].Columns[locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="locat"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output]"
+                  name="Pivot Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[time]"
+                      name="time">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]"
+                      name="C_1703_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">1703</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0a25_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0a25_locat]"
+                      name="C_0a25_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">0a25</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0f2f_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0f2f_locat]"
+                      name="C_0f2f_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">0f2f</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1389_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1389_locat]"
+                      name="C_1389_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">1389</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1a9a_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1a9a_locat]"
+                      name="C_1a9a_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">1a9a</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_429c_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_429c_locat]"
+                      name="C_429c_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">429c</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4380_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4380_locat]"
+                      name="C_4380_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">4380</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4d86_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4d86_locat]"
+                      name="C_4d86_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">4d86</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_5780_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_5780_locat]"
+                      name="C_5780_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">5780</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_9ca5_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_9ca5_locat]"
+                      name="C_9ca5_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">9ca5</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d03a_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d03a_locat]"
+                      name="C_d03a_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">d03a</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d787_locat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d787_locat]"
+                      name="C_d787_locat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[locat]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">d787</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Pivot.Outputs[Pivot Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Pivot Error Output"
+                  synchronousInputId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\y un x atdalīšana"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="y un x atdalīšana"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input].Columns[C_1703_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_1703_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1703_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1703_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Pivot Default Output]"
+              endId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]"
+              name="Pivot Default Output"
+              startId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Datu tipu pieškiršana"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{944DBE45-345E-4B7D-97EE-333F0EF51F2C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Datu tipu pieškiršana"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Datu tipu pieškiršana\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[locat_structured]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datu tipu pieškiršana\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{60296795-3BE2-487B-B858-341665C07776}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-ES8NNIH.VPP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedDataType="dbDate"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[test_name]"
+                      cachedDataType="nText"
+                      cachedName="test_name"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[test_name]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[test_name]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[tag_id]"
+                      cachedDataType="nText"
+                      cachedName="tag_id"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tag_id]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag_id]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[zone_id]"
+                      cachedDataType="nText"
+                      cachedName="zone_id"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone_id]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[x]"
+                      cachedDataType="r8"
+                      cachedName="x"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[x]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[x]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[y]"
+                      cachedDataType="r8"
+                      cachedName="y"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[y]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[y]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[z]"
+                      cachedDataType="r8"
+                      cachedName="z"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[z]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[z]" />
+                    <inputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="time"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[test_name]"
+                      dataType="nText"
+                      name="test_name" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tag_id]"
+                      dataType="nText"
+                      name="tag_id" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
+                      dataType="nText"
+                      name="zone_id" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[x]"
+                      dataType="r8"
+                      name="x" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[y]"
+                      dataType="r8"
+                      name="y" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[z]"
+                      dataType="r8"
+                      name="z" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="time" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Datu tipu pieškiršana\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Datu tipu pieškiršana\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+created as date,
+name as test_name,
+tag_id,
+zone_id,
+avg(cast(x as float)) as x,
+avg(cast(y as float )) as y,
+avg(cast (z as float)) as z,
+convert(varchar, timestamp,108) as time
+from z_locat
+group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datu tipu pieškiršana\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{60296795-3BE2-487B-B858-341665C07776}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-ES8NNIH.VPP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[test_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[test_name]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[test_name]"
+                      name="test_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag_id]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag_id]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag_id]"
+                      name="tag_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone_id]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[zone_id]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone_id]"
+                      name="zone_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[x]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[x]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[x]"
+                      name="x"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[y]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[y]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[y]"
+                      name="y"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[z]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[z]"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[z]"
+                      name="z"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[time]"
+                      length="30"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].Columns[time]"
+                      name="time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[test_name]"
+                      dataType="nText"
+                      name="test_name" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag_id]"
+                      dataType="nText"
+                      name="tag_id" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[zone_id]"
+                      dataType="nText"
+                      name="zone_id" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[x]"
+                      dataType="r8"
+                      name="x" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[y]"
+                      dataType="r8"
+                      name="y" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[z]"
+                      dataType="r8"
+                      name="z" />
+                    <externalMetadataColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[test_name]"
+                      dataType="nText"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[test_name]"
+                      name="test_name" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag_id]"
+                      dataType="nText"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag_id]"
+                      name="tag_id" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[zone_id]"
+                      dataType="nText"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[zone_id]"
+                      name="zone_id" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[x]"
+                      dataType="r8"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[x]"
+                      name="x" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[y]"
+                      dataType="r8"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[y]"
+                      name="y" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[z]"
+                      dataType="r8"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[z]"
+                      name="z" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[time]"
+                      name="time" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Datu tipu pieškiršana.Paths[OLE DB Source Output]"
+              endId="Package\Datu tipu pieškiršana\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Datu tipu pieškiršana\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ielāde no ODBC"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FA38D999-8286-47DD-B377-10F5824778AE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ielāde no ODBC"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ielāde no ODBC\Datu ielāde MS SQL"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Datu ielāde MS SQL"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[z_locat]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Connections[OleDbConnection]"
+                  connectionManagerID="{60296795-3BE2-487B-B858-341665C07776}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-ES8NNIH.VPP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[tag_id]"
+                      cachedDataType="nText"
+                      cachedName="tag_id"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[tag_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[tag_id]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[timestamp]"
+                      cachedDataType="nText"
+                      cachedName="timestamp"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[zone_id]"
+                      cachedDataType="nText"
+                      cachedName="zone_id"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[zone_id]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[Copy of x_coordinate]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copy of x_coordinate"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[x]"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of x_coordinate]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[Copy of y_coordinate]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copy of y_coordinate"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[y]"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of y_coordinate]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[Copy of z_coordinate]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copy of z_coordinate"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[z]"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of z_coordinate]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="created"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[created]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[created]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="nText"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[tag_id]"
+                      dataType="nText"
+                      name="tag_id" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="nText"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[zone_id]"
+                      dataType="nText"
+                      name="zone_id" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[x]"
+                      dataType="wstr"
+                      length="300"
+                      name="x" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[y]"
+                      dataType="wstr"
+                      length="300"
+                      name="y" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[z]"
+                      dataType="wstr"
+                      length="300"
+                      name="z" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[created]"
+                      dataType="dbTimeStamp"
+                      name="created" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="nText"
+                      name="name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ielāde no ODBC\Datu Tipa konvertācija"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Datu Tipa konvertācija"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input].Columns[x_coordinate]"
+                      cachedDataType="r8"
+                      cachedName="x_coordinate"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[x_coordinate]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input].Columns[y_coordinate]"
+                      cachedDataType="r8"
+                      cachedName="y_coordinate"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[y_coordinate]" />
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input].Columns[z_coordinate]"
+                      cachedDataType="r8"
+                      cachedName="z_coordinate"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[z_coordinate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of x_coordinate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of x_coordinate]"
+                      name="Copy of x_coordinate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[x_coordinate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of y_coordinate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of y_coordinate]"
+                      name="Copy of y_coordinate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[y_coordinate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of z_coordinate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output].Columns[Copy of z_coordinate]"
+                      name="Copy of z_coordinate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[z_coordinate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="Lokācijas Datu ielāde"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName">location</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Connections[ODBCConnection]"
+                  connectionManagerID="{208CD351-6C2D-441E-99C0-0DF525C2B48F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MongoDB32]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[_id]"
+                      name="_id" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[_class]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_class]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[_class]"
+                      name="_class" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[counter]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[counter]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[counter]"
+                      name="counter" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[created]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[created]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[created]"
+                      name="created" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[name]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[name]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[quality]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[quality]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[quality]"
+                      name="quality" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[tag_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[tag_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[tag_id]"
+                      name="tag_id" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[timestamp]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[timestamp]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[x_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[x_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[x_coordinate]"
+                      name="x_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[y_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[y_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[y_coordinate]"
+                      name="y_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[z_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[z_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[z_coordinate]"
+                      name="z_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[zone_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[zone_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[zone_id]"
+                      name="zone_id" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_id]"
+                      dataType="nText"
+                      name="_id" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_class]"
+                      dataType="nText"
+                      name="_class" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[counter]"
+                      dataType="i8"
+                      name="counter" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[created]"
+                      dataType="dbTimeStamp"
+                      name="created" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[name]"
+                      dataType="nText"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[quality]"
+                      dataType="i8"
+                      name="quality" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[tag_id]"
+                      dataType="nText"
+                      name="tag_id" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[timestamp]"
+                      dataType="nText"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[x_coordinate]"
+                      dataType="r8"
+                      name="x_coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[y_coordinate]"
+                      dataType="r8"
+                      name="y_coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[z_coordinate]"
+                      dataType="r8"
+                      name="z_coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[zone_id]"
+                      dataType="nText"
+                      name="zone_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[_id]"
+                      name="_id" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[_class]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[_class]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[_class]"
+                      name="_class" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[counter]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[counter]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[counter]"
+                      name="counter" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[created]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[created]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[created]"
+                      name="created" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[name]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[name]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[quality]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[quality]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[quality]"
+                      name="quality" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[tag_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[tag_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[tag_id]"
+                      name="tag_id" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[timestamp]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[timestamp]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[x_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[x_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[x_coordinate]"
+                      name="x_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[y_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[y_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[y_coordinate]"
+                      name="y_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[z_coordinate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[z_coordinate]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[z_coordinate]"
+                      name="z_coordinate" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[zone_id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].ExternalColumns[zone_id]"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[zone_id]"
+                      name="zone_id" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Nekvalitatīvo datu tīrīšana"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input].Columns[quality]"
+                      cachedDataType="i8"
+                      cachedName="quality"
+                      lineageId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[quality]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Quality nav vienāds ar 0]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Quality nav vienāds ar 0"
+                  synchronousInputId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="IgnoreFailure">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output].Columns[quality]} != 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">quality != 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ielāde no ODBC.Paths[Data Conversion Output]"
+              endId="Package\Ielāde no ODBC\Datu ielāde MS SQL.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Ielāde no ODBC.Paths[ODBC Source Output]"
+              endId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Inputs[Conditional Split Input]"
+              name="ODBC Source Output"
+              startId="Package\Ielāde no ODBC\Lokācijas Datu ielāde.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\Ielāde no ODBC.Paths[Quality nav vienāds ar 0]"
+              endId="Package\Ielāde no ODBC\Datu Tipa konvertācija.Inputs[Data Conversion Input]"
+              name="Quality nav vienāds ar 0"
+              startId="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana.Outputs[Quality nav vienāds ar 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Notīra tabulu"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2218499F-3354-4CE4-9AB0-A6ABFF7D8160}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Notīra tabulu"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{60296795-3BE2-487B-B858-341665C07776}"
+          SQLTask:SqlStatementSource="truncate table z_locat;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{934CB1A2-B8DC-4C62-8CBC-ED6D5CD9DADE}"
+      DTS:From="Package\Ielāde no ODBC"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Alter table time, date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{62EE8AB2-33CB-47BD-9642-B1D12DA5FDB7}"
+      DTS:From="Package\Notīra tabulu"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Ielāde no ODBC" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{700FB6E6-D48D-4B75-89E6-CCB242949A26}"
+      DTS:From="Package\Alter table time, date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Datu tipu pieškiršana" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB9A73AC-4D2E-43B4-9B1D-8600355E112D}"
+      DTS:From="Package\Datu tipu pieškiršana"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Ielāde no ODBC"
+          TopLeft="338,202" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Alter table time, date"
+          TopLeft="531,301" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="415,244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205,57"
+              Start="0,0"
+              End="205,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="201,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="201,28.5"
+                    Point2="205,28.5"
+                    Point3="205,32.5" />
+                  <mssgle:LineSegment
+                    End="205,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Notīra tabulu"
+          TopLeft="151,130" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="221,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194,30"
+              Start="0,0"
+              End="194,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="190,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190,15"
+                    Point2="194,15"
+                    Point3="194,19" />
+                  <mssgle:LineSegment
+                    End="194,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Datu tipu pieškiršana"
+          TopLeft="668,167" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="648.333333333333,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.666666666667,-92"
+              Start="0,0"
+              End="108.666666666667,-84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-33.2917594654788" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-33.2917594654788"
+                    Point2="0,-37.2917594654788"
+                    Point3="4,-37.2917594654788" />
+                  <mssgle:LineSegment
+                    End="104.666666666667,-37.2917594654788" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.666666666667,-37.2917594654788"
+                    Point2="108.666666666667,-37.2917594654788"
+                    Point3="108.666666666667,-41.2917594654788" />
+                  <mssgle:LineSegment
+                    End="108.666666666667,-84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="959,175" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="846,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,8"
+              Start="0,0"
+              End="105.5,8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.5,0"
+                    Point2="56.5,0"
+                    Point3="56.5,4" />
+                  <mssgle:LineSegment
+                    End="56.5,4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5,4"
+                    Point2="56.5,8"
+                    Point3="60.5,8" />
+                  <mssgle:LineSegment
+                    End="105.5,8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ielāde no ODBC">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Ielāde no ODBC\Lokācijas Datu ielāde"
+          TopLeft="252,238" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Ielāde no ODBC\Datu ielāde MS SQL"
+          TopLeft="650,506" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Ielāde no ODBC\Nekvalitatīvo datu tīrīšana"
+          TopLeft="383,374" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Ielāde no ODBC\Datu Tipa konvertācija"
+          TopLeft="365,514" />
+        <EdgeLayout
+          Id="Package\Ielāde no ODBC.Paths[Data Conversion Output]"
+          TopLeft="550,535">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100,-8"
+              Start="0,0"
+              End="92.5,-8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,0"
+                    Point2="50,0"
+                    Point3="50,-4" />
+                  <mssgle:LineSegment
+                    End="50,-4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50,-4"
+                    Point2="50,-8"
+                    Point3="54,-8" />
+                  <mssgle:LineSegment
+                    End="92.5,-8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ielāde no ODBC.Paths[Quality nav vienāds ar 0]"
+          TopLeft="483.5,416">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-26,98"
+              Start="0,0"
+              End="-26,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="-4,49" />
+                  <mssgle:LineSegment
+                    End="-22,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22,49"
+                    Point2="-26,49"
+                    Point3="-26,53" />
+                  <mssgle:LineSegment
+                    End="-26,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-67.03572265625,54,108.0714453125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ielāde no ODBC.Paths[ODBC Source Output]"
+          TopLeft="341,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.5,94"
+              Start="0,0"
+              End="142.5,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
+                  <mssgle:LineSegment
+                    End="138.5,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138.5,47"
+                    Point2="142.5,47"
+                    Point3="142.5,51" />
+                  <mssgle:LineSegment
+                    End="142.5,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ielāde no ODBC\Lokācijas Datu ielāde">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ielāde no ODBC\Datu ielāde MS SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Datu tipu pieškiršana">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Datu tipu pieškiršana\OLE DB Source"
+          TopLeft="126,211" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Datu tipu pieškiršana\OLE DB Destination"
+          TopLeft="271,373" />
+        <EdgeLayout
+          Id="Package\Datu tipu pieškiršana.Paths[OLE DB Source Output]"
+          TopLeft="201,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.5,120"
+              Start="0,0"
+              End="155.5,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56"
+                    Point2="0,60"
+                    Point3="4,60" />
+                  <mssgle:LineSegment
+                    End="151.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.5,60"
+                    Point2="155.5,60"
+                    Point3="155.5,64" />
+                  <mssgle:LineSegment
+                    End="155.5,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datu tipu pieškiršana\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datu tipu pieškiršana\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="196,165" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Data Flow Task\Pivot"
+          TopLeft="304,338" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="271,207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,131"
+              Start="0,0"
+              End="84,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.5"
+                    Point2="0,65.5"
+                    Point3="4,65.5" />
+                  <mssgle:LineSegment
+                    End="80,65.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80,65.5"
+                    Point2="84,65.5"
+                    Point3="84,69.5" />
+                  <mssgle:LineSegment
+                    End="84,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task\y un x atdalīšana"
+          TopLeft="518,423" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Pivot Default Output]"
+          TopLeft="355,380">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242.5,43"
+              Start="0,0"
+              End="242.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="238.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="238.5,21.5"
+                    Point2="242.5,21.5"
+                    Point3="242.5,25.5" />
+                  <mssgle:LineSegment
+                    End="242.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
