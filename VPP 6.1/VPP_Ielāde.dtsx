@@ -11,8 +11,8 @@
   DTS:LocaleID="1062"
   DTS:ObjectName="VPP_Ielāde"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{1C94BF11-8AB6-4D90-B454-04986A7B08B6}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{CCD56CB2-D7E0-4352-A292-870C1DC70464}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -61,6 +61,411 @@
           version="1">
           <components>
             <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[OLE DB Destination]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1257</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{60296795-3BE2-487B-B858-341665C07776}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-ES8NNIH.VPP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="time"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[time]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1703x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1703x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1703x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1703y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1703y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1703y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[0a25x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="0a25x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0a25x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[0a25y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="0a25y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0a25y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[0f2fx]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="0f2fx"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0f2fx]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fx]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[0f2fy]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="0f2fy"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0f2fy]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1389x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1389x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1389x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1389y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1389y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1389y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1a9ax]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1a9ax"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1a9ax]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ax]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1a9ay]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="1a9ay"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1a9ay]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ay]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[429cx]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="429cx"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[429cx]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cx]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[429cy]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="429cy"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[429cy]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[4380x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="4380x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4380x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[4380y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="4380y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4380y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[4d86x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="4d86x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4d86x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[4d86y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="4d86y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4d86y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[5780x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="5780x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5780x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[5780y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="5780y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5780y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[9ca5x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="9ca5x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9ca5x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[9ca5y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="9ca5y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9ca5y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5y]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[d03ax]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="d03ax"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d03ax]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ax]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[d03ay]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="d03ay"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d03ay]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ay]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[d787x]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="d787x"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d787x]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787x]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[d787y]"
+                      cachedDataType="wstr"
+                      cachedLength="47"
+                      cachedName="d787y"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d787y]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787y]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1703x]"
+                      dataType="wstr"
+                      length="47"
+                      name="1703x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1703y]"
+                      dataType="wstr"
+                      length="47"
+                      name="1703y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0a25x]"
+                      dataType="wstr"
+                      length="47"
+                      name="0a25x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0a25y]"
+                      dataType="wstr"
+                      length="47"
+                      name="0a25y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0f2fx]"
+                      dataType="wstr"
+                      length="47"
+                      name="0f2fx" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[0f2fy]"
+                      dataType="wstr"
+                      length="47"
+                      name="0f2fy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1389x]"
+                      dataType="wstr"
+                      length="47"
+                      name="1389x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1389y]"
+                      dataType="wstr"
+                      length="47"
+                      name="1389y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1a9ax]"
+                      dataType="wstr"
+                      length="47"
+                      name="1a9ax" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1a9ay]"
+                      dataType="wstr"
+                      length="47"
+                      name="1a9ay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[429cx]"
+                      dataType="wstr"
+                      length="47"
+                      name="429cx" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[429cy]"
+                      dataType="wstr"
+                      length="47"
+                      name="429cy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4380x]"
+                      dataType="wstr"
+                      length="47"
+                      name="4380x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4380y]"
+                      dataType="wstr"
+                      length="47"
+                      name="4380y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4d86x]"
+                      dataType="wstr"
+                      length="47"
+                      name="4d86x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4d86y]"
+                      dataType="wstr"
+                      length="47"
+                      name="4d86y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5780x]"
+                      dataType="wstr"
+                      length="47"
+                      name="5780x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5780y]"
+                      dataType="wstr"
+                      length="47"
+                      name="5780y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9ca5x]"
+                      dataType="wstr"
+                      length="47"
+                      name="9ca5x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9ca5y]"
+                      dataType="wstr"
+                      length="47"
+                      name="9ca5y" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d03ax]"
+                      dataType="wstr"
+                      length="47"
+                      name="d03ax" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d03ay]"
+                      dataType="wstr"
+                      length="47"
+                      name="d03ay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d787x]"
+                      dataType="wstr"
+                      length="47"
+                      name="d787x" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[d787y]"
+                      dataType="wstr"
+                      length="47"
+                      name="d787y" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -88,7 +493,7 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT tag_id , concat(x , concat('g' , y)) as locat
       
       ,[time]
-  FROM [VPP].[dbo].[locat_structured] where test_name = 'BKUS_08_12_2020' and date = '2020-12-08'</property>
+  FROM [VPP].[dbo].[locat_structured] where test_name = 'BKUS_08_12_2020' and date = '2020-12-08' order by time asc</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -578,45 +983,122 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\y un x atdalīšana"
+              refId="Package\Data Flow Task\x un y atdalīšana"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="y un x atdalīšana"
+              name="x un y atdalīšana"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]"
+                  refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input].Columns[C_1703_locat]"
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_1703_locat]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="47"
                       cachedName="C_1703_locat"
                       lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1703_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_0a25_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_0a25_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0a25_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_0f2f_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_0f2f_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0f2f_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_1389_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_1389_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1389_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_1a9a_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_1a9a_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1a9a_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_429c_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_429c_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_429c_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_4380_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_4380_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4380_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_4d86_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_4d86_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4d86_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_5780_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_5780_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_5780_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_9ca5_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_9ca5_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_9ca5_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_d03a_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_d03a_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d03a_locat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input].Columns[C_d787_locat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="C_d787_locat"
+                      lineageId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d787_locat]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output]"
+                  refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703x]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="47"
-                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 1]"
-                      name="Derived Column 1"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703x]"
+                      name="1703x"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -633,13 +1115,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703y]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="47"
-                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Output].Columns[Derived Column 2]"
-                      name="Derived Column 2"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1703y]"
+                      name="1703y"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -655,27 +1137,533 @@
                           name="FriendlyExpression">TOKEN(C_1703_locat,"g",2)</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25x]"
+                      name="0a25x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0a25_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_0a25_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0a25y]"
+                      name="0a25y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0a25_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_0a25_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fx]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fx]"
+                      name="0f2fx"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0f2f_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_0f2f_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[0f2fy]"
+                      name="0f2fy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_0f2f_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_0f2f_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389x]"
+                      name="1389x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1389_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1389_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1389y]"
+                      name="1389y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1389_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1389_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ax]"
+                      name="1a9ax"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1a9a_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1a9a_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ay]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[1a9ay]"
+                      name="1a9ay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_1a9a_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_1a9a_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cx]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cx]"
+                      name="429cx"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_429c_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_429c_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[429cy]"
+                      name="429cy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_429c_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_429c_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380x]"
+                      name="4380x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4380_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_4380_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4380y]"
+                      name="4380y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4380_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_4380_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86x]"
+                      name="4d86x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4d86_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_4d86_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[4d86y]"
+                      name="4d86y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_4d86_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_4d86_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780x]"
+                      name="5780x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_5780_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_5780_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[5780y]"
+                      name="5780y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_5780_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_5780_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5x]"
+                      name="9ca5x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_9ca5_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_9ca5_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[9ca5y]"
+                      name="9ca5y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_9ca5_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_9ca5_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ax]"
+                      name="d03ax"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d03a_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_d03a_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ay]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d03ay]"
+                      name="d03ay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d03a_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_d03a_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787x]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787x]"
+                      name="d787x"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d787_locat]},"g",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_d787_locat,"g",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787y]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="47"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output].Columns[d787y]"
+                      name="d787y"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\Data Flow Task\Pivot.Outputs[Pivot Default Output].Columns[C_d787_locat]},"g",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(C_d787_locat,"g",2)</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output]"
+                  refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\y un x atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -686,13 +1674,18 @@
           </components>
           <paths>
             <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\x un y atdalīšana.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Pivot.Inputs[Pivot Default Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Pivot Default Output]"
-              endId="Package\Data Flow Task\y un x atdalīšana.Inputs[Derived Column Input]"
+              endId="Package\Data Flow Task\x un y atdalīšana.Inputs[Derived Column Input]"
               name="Pivot Default Output"
               startId="Package\Data Flow Task\Pivot.Outputs[Pivot Default Output]" />
           </paths>
@@ -2132,39 +3125,39 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="196,165" />
-        <NodeLayout
           Size="102,42"
           Id="Package\Data Flow Task\Pivot"
-          TopLeft="304,338" />
+          TopLeft="230.666666666667,193.555555555556" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="113.777777777778,56.1111111111111" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="271,207">
+          TopLeft="188.777777777778,98.1111111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="84,131"
+              EndConnector="92.8888888888889,95.4444444444444"
               Start="0,0"
-              End="84,123.5">
+              End="92.8888888888889,87.9444444444444">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.5" />
+                    End="0,43.7222222222222" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,61.5"
-                    Point2="0,65.5"
-                    Point3="4,65.5" />
+                    Point1="0,43.7222222222222"
+                    Point2="0,47.7222222222222"
+                    Point3="4,47.7222222222222" />
                   <mssgle:LineSegment
-                    End="80,65.5" />
+                    End="88.8888888888889,47.7222222222222" />
                   <mssgle:CubicBezierSegment
-                    Point1="80,65.5"
-                    Point2="84,65.5"
-                    Point3="84,69.5" />
+                    Point1="88.8888888888889,47.7222222222222"
+                    Point2="92.8888888888889,47.7222222222222"
+                    Point3="92.8888888888889,51.7222222222222" />
                   <mssgle:LineSegment
-                    End="84,123.5" />
+                    End="92.8888888888889,87.9444444444444" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2175,34 +3168,72 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
         </EdgeLayout>
         <NodeLayout
           Size="159,42"
-          Id="Package\Data Flow Task\y un x atdalīšana"
-          TopLeft="518,423" />
+          Id="Package\Data Flow Task\x un y atdalīšana"
+          TopLeft="277.777777777778,283.333333333333" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Pivot Default Output]"
-          TopLeft="355,380">
+          TopLeft="281.666666666667,235.555555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="242.5,43"
+              EndConnector="75.6111111111111,47.7777777777778"
               Start="0,0"
-              End="242.5,35.5">
+              End="75.6111111111111,40.2777777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.5" />
+                    End="0,19.8888888888889" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
+                    Point1="0,19.8888888888889"
+                    Point2="0,23.8888888888889"
+                    Point3="4,23.8888888888889" />
                   <mssgle:LineSegment
-                    End="238.5,21.5" />
+                    End="71.6111111111111,23.8888888888889" />
                   <mssgle:CubicBezierSegment
-                    Point1="238.5,21.5"
-                    Point2="242.5,21.5"
-                    Point3="242.5,25.5" />
+                    Point1="71.6111111111111,23.8888888888889"
+                    Point2="75.6111111111111,23.8888888888889"
+                    Point3="75.6111111111111,27.8888888888889" />
                   <mssgle:LineSegment
-                    End="242.5,35.5" />
+                    End="75.6111111111111,40.2777777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="380,397.777777777778" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="357.277777777778,325.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.222222222222,72.4444444444445"
+              Start="0,0"
+              End="108.222222222222,64.9444444444445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2222222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.2222222222222"
+                    Point2="0,36.2222222222222"
+                    Point3="4,36.2222222222222" />
+                  <mssgle:LineSegment
+                    End="104.222222222222,36.2222222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.222222222222,36.2222222222222"
+                    Point2="108.222222222222,36.2222222222222"
+                    Point3="108.222222222222,40.2222222222222" />
+                  <mssgle:LineSegment
+                    End="108.222222222222,64.9444444444445" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2231,7 +3262,7 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
     design-time-name="Package\Datu tipu pieškiršana">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Datu tipu pieškiršana\OLE DB Destination"
@@ -2271,7 +3302,9 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2441,6 +3474,19 @@ group by created , name , tag_id, zone_id , convert(varchar, timestamp,108)</pro
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Ielāde no ODBC\Datu ielāde MS SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
