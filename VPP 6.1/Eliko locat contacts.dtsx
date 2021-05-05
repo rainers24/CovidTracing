@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Eliko locat contacts"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{3E3393C8-5F71-42E6-8982-A09DB34DF327}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{0FBEE90D-B7BB-4ED3-A616-A4F003BFC852}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -16698,7 +16698,7 @@ from s_eliko_locat where test_name = 'LNO_stage' and [yyyy-mm-dd hh:mm] &gt; '20
         <NodeLayout
           Size="115,42"
           Id="Package\Unpivot\Unpivot"
-          TopLeft="441,261" />
+          TopLeft="435,305" />
         <NodeLayout
           Size="150,42"
           Id="Package\Unpivot\OLE DB Source"
@@ -16709,30 +16709,30 @@ from s_eliko_locat where test_name = 'LNO_stage' and [yyyy-mm-dd hh:mm] &gt; '20
           TopLeft="610,470" />
         <EdgeLayout
           Id="Package\Unpivot.Paths[Unpivot Output]"
-          TopLeft="498.5,303">
+          TopLeft="492.5,347">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="197,167"
+              EndConnector="203,123"
               Start="0,0"
-              End="197,159.5">
+              End="203,115.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,79.5" />
+                    End="0,57.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,79.5"
-                    Point2="0,83.5"
-                    Point3="4,83.5" />
+                    Point1="0,57.5"
+                    Point2="0,61.5"
+                    Point3="4,61.5" />
                   <mssgle:LineSegment
-                    End="193,83.5" />
+                    End="199,61.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="193,83.5"
-                    Point2="197,83.5"
-                    Point3="197,87.5" />
+                    Point1="199,61.5"
+                    Point2="203,61.5"
+                    Point3="203,65.5" />
                   <mssgle:LineSegment
-                    End="197,159.5" />
+                    End="203,115.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16747,26 +16747,26 @@ from s_eliko_locat where test_name = 'LNO_stage' and [yyyy-mm-dd hh:mm] &gt; '20
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="209.5,28"
+              EndConnector="203.5,72"
               Start="0,0"
-              End="209.5,20.5">
+              End="203.5,64.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10" />
+                    End="0,32" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
                   <mssgle:LineSegment
-                    End="205.5,14" />
+                    End="199.5,36" />
                   <mssgle:CubicBezierSegment
-                    Point1="205.5,14"
-                    Point2="209.5,14"
-                    Point3="209.5,18" />
+                    Point1="199.5,36"
+                    Point2="203.5,36"
+                    Point3="203.5,40" />
                   <mssgle:LineSegment
-                    End="209.5,20.5" />
+                    End="203.5,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
