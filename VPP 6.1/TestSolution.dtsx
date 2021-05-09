@@ -11,8 +11,8 @@
   DTS:LocaleID="1062"
   DTS:ObjectName="TestSolution"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{10C38B38-C986-4592-9E96-7FEC2AAB9A5A}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{71B2B648-6A3D-43D7-B14C-A53C6FEB8A13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -649,7 +649,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[t_max_minutes_tag]</property>
+                  name="OpenRowset">[dbo].[t_max_minutes_tag]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -708,7 +708,7 @@
                     <inputColumn
                       refId="Package\maxMinuteTag\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
                       cachedDataType="wstr"
-                      cachedLength="1"
+                      cachedLength="255"
                       cachedName="id"
                       externalMetadataColumnId="Package\maxMinuteTag\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                       lineageId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]" />
@@ -732,7 +732,7 @@
                     <externalMetadataColumn
                       refId="Package\maxMinuteTag\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                       dataType="wstr"
-                      length="1"
+                      length="2"
                       name="id" />
                     <externalMetadataColumn
                       refId="Package\maxMinuteTag\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[skaits]"
@@ -797,9 +797,9 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select left(paris,1) as id , 1 as skaits, time  from t_all_structured where Distance is not null and Distance &lt; 2
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select SUBSTRING(paris,0,CHARINDEX(' to ',paris,0)) as id , 1 as skaits, time  from t_all_structured where Distance is not null and Distance &lt;= 2
   union all
-  select  right(paris,1) as id , 1 as skaits , time from t_all_structured where  Distance &lt; 2</property>
+  select   SUBSTRING(paris,CHARINDEX('to ',paris)+3,LEN(paris))  as id , 1 as skaits , time from t_all_structured where  Distance &lt;= 2</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -841,7 +841,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                      length="1"
+                      length="255"
                       lineageId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
                       name="id"
                       truncationRowDisposition="FailComponent" />
@@ -871,7 +871,7 @@
                     <externalMetadataColumn
                       refId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
                       dataType="wstr"
-                      length="1"
+                      length="255"
                       name="id" />
                     <externalMetadataColumn
                       refId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skaits]"
@@ -893,7 +893,7 @@
                     <outputColumn
                       refId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
                       dataType="wstr"
-                      length="1"
+                      length="255"
                       lineageId="Package\maxMinuteTag\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
                       name="id" />
                     <outputColumn
@@ -5186,37 +5186,37 @@ from t_structured order by time</property>
         <NodeLayout
           Size="150,42"
           Id="Package\maxMinuteTag\OLE DB Source"
-          TopLeft="367,291" />
+          TopLeft="296,445" />
         <NodeLayout
           Size="171,42"
           Id="Package\maxMinuteTag\OLE DB Destination"
-          TopLeft="479,539" />
+          TopLeft="727,622" />
         <EdgeLayout
           Id="Package\maxMinuteTag.Paths[OLE DB Source Output]"
-          TopLeft="442,333">
+          TopLeft="371,487">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="122.5,206"
+              EndConnector="441.5,135"
               Start="0,0"
-              End="122.5,198.5">
+              End="441.5,127.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,99" />
+                    End="0,63.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,99"
-                    Point2="0,103"
-                    Point3="4,103" />
+                    Point1="0,63.5"
+                    Point2="0,67.5"
+                    Point3="4,67.5" />
                   <mssgle:LineSegment
-                    End="118.5,103" />
+                    End="437.5,67.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="118.5,103"
-                    Point2="122.5,103"
-                    Point3="122.5,107" />
+                    Point1="437.5,67.5"
+                    Point2="441.5,67.5"
+                    Point3="441.5,71.5" />
                   <mssgle:LineSegment
-                    End="122.5,198.5" />
+                    End="441.5,127.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
