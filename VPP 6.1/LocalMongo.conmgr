@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalMongo"
+  DTS:DTSID="{3E58A500-4A9B-479C-9602-1BB7A03EB518}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=LocalMongo;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
