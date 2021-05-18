@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-ES8NNIH"
   DTS:CreatorName="DESKTOP-ES8NNIH\RKN"
-  DTS:DTSID="{49FE9042-50C3-4E67-9934-F54D0D0A0BB5}"
+  DTS:DTSID="{953D1238-51DA-42B2-A483-51704DFCBC8E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1062"
   DTS:ObjectName="TestSolution"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{F9D00E6E-671B-4370-A55B-59AEAE14DD24}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{8734F754-112A-49FA-A862-B7111745F188}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{CB356018-56BE-4BA6-8FFF-8E2D955B60E2}"
+      DTS:DTSID="{E6E06A20-F134-4981-9FFD-43954B5C2639}"
       DTS:ObjectName="Excel Connection Manager 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -32,7 +32,7 @@
       DTS:CreationName=""
       DTS:DataType="8"
       DTS:Description="Para kombinacija"
-      DTS:DTSID="{02026560-FB88-4E9A-85D4-8F12189E3984}"
+      DTS:DTSID="{7A7205B5-C09E-4D65-AC99-5465C33C2410}"
       DTS:ObjectName="Paris"
       DTS:Required="True">
       <DTS:Property
@@ -48,7 +48,7 @@
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:Disabled="True"
-      DTS:DTSID="{2B2EA0DE-B347-4FBA-A267-942ADA59BA90}"
+      DTS:DTSID="{AD1E2BD8-722A-42B0-A686-58111427F913}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -412,7 +412,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:refId="Package\Datu ielāde"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{744000AA-F872-42DA-A866-CC6757B0B892}"
+      DTS:DTSID="{B55BB4EC-F803-4E0F-ADE9-8F756F24E269}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Datu ielāde"
@@ -736,7 +736,7 @@ ORDER BY 1 DESC, 2 DESC</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[t_all_data]</property>
+                  name="OpenRowset">[t_all_data1]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -854,12 +854,8 @@ ORDER BY 1 DESC, 2 DESC</property>
                       dataType="i8"
                       name="z" />
                     <externalMetadataColumn
-                      refId="Package\Datu ielāde\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
                       refId="Package\Datu ielāde\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quality]"
-                      dataType="i4"
+                      dataType="i8"
                       name="quality" />
                   </externalMetadataColumns>
                 </input>
@@ -1128,8 +1124,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:refId="Package\Datu kvalitate"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{9ca98f70-d444-447f-99cc-d6fb2790a17a}"
+      DTS:DTSID="{560E4083-4255-462F-AA56-CBEB43150482}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Datu kvalitate"
@@ -2364,7 +2359,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:Disabled="True"
-      DTS:DTSID="{09fc826d-ef3f-43f3-b06a-738b3c8a8124}"
+      DTS:DTSID="{0D437FD6-4571-44FB-BF66-4DD3CD0CEE29}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Datu kvalitate 1"
@@ -2387,7 +2382,7 @@ ORDER BY 1 DESC, 2 DESC</property>
                   dataType="System.String"
                   description="The name of the table to be fetched."
                   expressionType="Notify"
-                  name="TableName">location1</property>
+                  name="TableName">location</property>
                 <property
                   dataType="System.String"
                   description="The SQL command to be executed."
@@ -2599,7 +2594,7 @@ ORDER BY 1 DESC, 2 DESC</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[t_432]</property>
+                  name="OpenRowset">[t_test_all]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2685,12 +2680,6 @@ ORDER BY 1 DESC, 2 DESC</property>
                       cachedName="z"
                       externalMetadataColumnId="Package\Datu kvalitate 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[z]"
                       lineageId="Package\Datu kvalitate 1\ODBC Source.Outputs[ODBC Source Output].Columns[z]" />
-                    <inputColumn
-                      refId="Package\Datu kvalitate 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quality]"
-                      cachedDataType="i8"
-                      cachedName="quality"
-                      externalMetadataColumnId="Package\Datu kvalitate 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quality]"
-                      lineageId="Package\Datu kvalitate 1\ODBC Source.Outputs[ODBC Source Output].Columns[quality]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2714,10 +2703,6 @@ ORDER BY 1 DESC, 2 DESC</property>
                       refId="Package\Datu kvalitate 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[z]"
                       dataType="i8"
                       name="z" />
-                    <externalMetadataColumn
-                      refId="Package\Datu kvalitate 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quality]"
-                      dataType="i8"
-                      name="quality" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2762,7 +2747,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:Disabled="True"
-      DTS:DTSID="{7869B1DB-ECC9-4927-BFE7-96FA3A26DDEB}"
+      DTS:DTSID="{E7AF9E63-98CC-4CC7-ABEA-4DCE2B58EA0C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete_duplicate"
@@ -2779,7 +2764,8 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{DC828E25-0E34-4694-B332-5D424AC59FDB}"
+      DTS:Disabled="True"
+      DTS:DTSID="{0331E87D-E5FF-4DBA-B6B9-15564BC524FE}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -2797,7 +2783,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:Disabled="True"
-      DTS:DTSID="{9B95534E-472F-475B-9948-703898DBC784}"
+      DTS:DTSID="{535AAA65-170D-48A2-A20C-2369B5F74A94}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Ielāde priekš kumulatīvā aprēķina"
@@ -3166,7 +3152,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:refId="Package\maxMinuteTag"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{415FF57E-BCA9-44BB-87B7-61B3EE43A1CE}"
+      DTS:DTSID="{75FA9733-B0AE-4766-8866-F6251ED6C955}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="maxMinuteTag"
@@ -3483,7 +3469,7 @@ ORDER BY 1 DESC, 2 DESC</property>
       DTS:refId="Package\Pivot"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5ff012e1-d7e9-40be-98dd-a911f97ae0dd}"
+      DTS:DTSID="{09570291-1C7B-42CC-96DA-90D77FBA9E5D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Pivot"
@@ -4092,7 +4078,7 @@ ORDER BY 1 DESC, 2 DESC</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[t_structured]</property>
+                  name="OpenRowset">[t_structured1]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4307,124 +4293,104 @@ ORDER BY 1 DESC, 2 DESC</property>
                       name="time" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1x]"
-                      dataType="numeric"
-                      name="1x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="1x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1y]"
-                      dataType="numeric"
-                      name="1y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="1y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2x]"
-                      dataType="numeric"
-                      name="2x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="2x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2y]"
-                      dataType="numeric"
-                      name="2y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="2y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[3x]"
-                      dataType="numeric"
-                      name="3x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="3x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[3y]"
-                      dataType="numeric"
-                      name="3y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="3y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4x]"
-                      dataType="numeric"
-                      name="4x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="4x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[4y]"
-                      dataType="numeric"
-                      name="4y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="4y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5x]"
-                      dataType="numeric"
-                      name="5x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="5x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[5y]"
-                      dataType="numeric"
-                      name="5y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="5y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[6x]"
-                      dataType="numeric"
-                      name="6x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="6x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[6y]"
-                      dataType="numeric"
-                      name="6y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="6y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[7x]"
-                      dataType="numeric"
-                      name="7x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="7x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[7y]"
-                      dataType="numeric"
-                      name="7y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="7y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[8x]"
-                      dataType="numeric"
-                      name="8x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="8x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[8y]"
-                      dataType="numeric"
-                      name="8y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="8y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9x]"
-                      dataType="numeric"
-                      name="9x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="9x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[9y]"
-                      dataType="numeric"
-                      name="9y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="9y" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[10x]"
-                      dataType="numeric"
-                      name="10x"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="10x" />
                     <externalMetadataColumn
                       refId="Package\Pivot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[10y]"
-                      dataType="numeric"
-                      name="10y"
-                      precision="16"
-                      scale="8" />
+                      dataType="wstr"
+                      length="49"
+                      name="10y" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4481,7 +4447,7 @@ ORDER BY 1 DESC, 2 DESC</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  CAST(timestamp AS time) as time
 ,tag_id,
 concat(x , concat('g' , y)) as locat
-  FROM [VPP].[dbo].[t_all_data] order by timestamp asc</property>
+  FROM [VPP].[dbo].[t_all_data1] order by timestamp asc</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -4951,7 +4917,7 @@ concat(x , concat('g' , y)) as locat
       DTS:refId="Package\Unpivot"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{bbae9961-f61b-452a-85d0-777fe410a0f4}"
+      DTS:DTSID="{8CD1C196-57A7-44B6-B9DA-F1A50F3E7E05}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Unpivot"
@@ -7088,7 +7054,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{93893FC9-FEA1-4DA7-8E38-386C4C31E75F}"
+      DTS:DTSID="{8DA781CA-F4E3-479F-A6A5-2A293D22CD03}"
       DTS:From="Package\Datu ielāde"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -7096,7 +7062,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{D4BFC6A1-0195-465F-BF16-2DC998ED26F3}"
+      DTS:DTSID="{A571B9A0-53E4-40B1-AF41-D66F694CA7FC}"
       DTS:From="Package\Pivot"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -7104,7 +7070,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{ACA08CDC-9BEF-4D01-A07D-CC4393D816CC}"
+      DTS:DTSID="{C17CF6B4-21B3-463C-8915-AD4B00358EFB}"
       DTS:From="Package\Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -7112,7 +7078,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{B1895FA5-513E-4305-A2BC-7288CC08E641}"
+      DTS:DTSID="{F578468A-575A-4843-A552-4A9793F26613}"
       DTS:From="Package\Delete_duplicate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -7120,7 +7086,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{D37FB70F-0261-46B1-84C1-5415415C147D}"
+      DTS:DTSID="{B3621931-C279-4190-A691-037CCF0E3E66}"
       DTS:From="Package\Unpivot"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
@@ -7128,7 +7094,7 @@ from t_structured order by time</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{42FE5609-41CC-4C64-A68A-5D2EF7BCB762}"
+      DTS:DTSID="{8D39739D-BFD0-4B9C-82D6-2818C5AE9F02}"
       DTS:From="Package\maxMinuteTag"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
@@ -7157,7 +7123,7 @@ from t_structured order by time</property>
         <NodeLayout
           Size="144,42"
           Id="Package\Datu kvalitate"
-          TopLeft="357,328" />
+          TopLeft="318,360" />
         <NodeLayout
           Size="144,42"
           Id="Package\Datu kvalitate 1"
@@ -7169,7 +7135,7 @@ from t_structured order by time</property>
         <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
-          TopLeft="106,69" />
+          TopLeft="126,72" />
         <NodeLayout
           Size="237,42"
           Id="Package\Ielāde priekš kumulatīvā aprēķina"
@@ -7244,30 +7210,30 @@ from t_structured order by time</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="187.5,111">
+          TopLeft="207.5,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,66"
+              EndConnector="-29.5,63"
               Start="0,0"
-              End="-9.5,58.5">
+              End="-29.5,55.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29" />
+                    End="0,27.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="-4,33" />
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="-4,31.5" />
                   <mssgle:LineSegment
-                    End="-5.5,33" />
+                    End="-25.5,31.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.5,33"
-                    Point2="-9.5,33"
-                    Point3="-9.5,37" />
+                    Point1="-25.5,31.5"
+                    Point2="-29.5,31.5"
+                    Point3="-29.5,35.5" />
                   <mssgle:LineSegment
-                    End="-9.5,58.5" />
+                    End="-29.5,55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7612,41 +7578,153 @@ from t_structured order by time</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Datu kvalitate\Conditional Split"
-          TopLeft="245,343" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Datu kvalitate\Derived Column"
           TopLeft="751,446" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Datu kvalitate\OLE DB Destination 1"
-          TopLeft="945,598" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Datu kvalitate\Derived Column 1"
-          TopLeft="685,597" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Datu kvalitate\OLE DB Destination"
-          TopLeft="976,449" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Datu kvalitate\ODBC Source"
-          TopLeft="183,178" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Datu kvalitate\Aggregate"
-          TopLeft="547,410" />
+          Size="155,42"
+          Id="Package\Datu kvalitate\Conditional Split"
+          TopLeft="245,343" />
         <NodeLayout
           Size="98,42"
           Id="Package\Datu kvalitate\Sort"
           TopLeft="323,247" />
         <NodeLayout
+          Size="154,42"
+          Id="Package\Datu kvalitate\Derived Column 1"
+          TopLeft="685,597" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Datu kvalitate\OLE DB Destination 1"
+          TopLeft="945,598" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Datu kvalitate\ODBC Source"
+          TopLeft="183,178" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Datu kvalitate\OLE DB Destination"
+          TopLeft="976,449" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Datu kvalitate\Aggregate"
+          TopLeft="547,410" />
+        <NodeLayout
           Size="136,42"
           Id="Package\Datu kvalitate\Aggregate 1"
           TopLeft="380,555" />
+        <EdgeLayout
+          Id="Package\Datu kvalitate.Paths[Derived Column Output1]"
+          TopLeft="839,618.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106,0"
+              Start="0,0"
+              End="98.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="98.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Datu kvalitate.Paths[Derived Column Output]"
+          TopLeft="905,468.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71,0"
+              Start="0,0"
+              End="63.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Datu kvalitate.Paths[Aggregate Output 11]"
+          TopLeft="516,576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169,42"
+              Start="0,0"
+              End="161.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5,0"
+                    Point2="84.5,0"
+                    Point3="84.5,4" />
+                  <mssgle:LineSegment
+                    End="84.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.5,38"
+                    Point2="84.5,42"
+                    Point3="88.5,42" />
+                  <mssgle:LineSegment
+                    End="161.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Datu kvalitate.Paths[Aggregate Output 1]"
+          TopLeft="674,431">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77,36"
+              Start="0,0"
+              End="69.5,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.5,0"
+                    Point2="38.5,0"
+                    Point3="38.5,4" />
+                  <mssgle:LineSegment
+                    End="38.5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5,32"
+                    Point2="38.5,36"
+                    Point3="42.5,36" />
+                  <mssgle:LineSegment
+                    End="69.5,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Datu kvalitate.Paths[Sort Output]"
           TopLeft="372,289">
@@ -7678,9 +7756,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7714,9 +7790,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7791,126 +7865,6 @@ from t_structured order by time</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Datu kvalitate.Paths[Derived Column Output1]"
-          TopLeft="839,618.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="106,0"
-              Start="0,0"
-              End="98.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="98.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Datu kvalitate.Paths[Derived Column Output]"
-          TopLeft="905,468.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71,0"
-              Start="0,0"
-              End="63.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="63.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Datu kvalitate.Paths[Aggregate Output 11]"
-          TopLeft="516,576">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="169,42"
-              Start="0,0"
-              End="161.5,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="80.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80.5,0"
-                    Point2="84.5,0"
-                    Point3="84.5,4" />
-                  <mssgle:LineSegment
-                    End="84.5,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="84.5,38"
-                    Point2="84.5,42"
-                    Point3="88.5,42" />
-                  <mssgle:LineSegment
-                    End="161.5,42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Datu kvalitate.Paths[Aggregate Output 1]"
-          TopLeft="674,431">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="77,36"
-              Start="0,0"
-              End="69.5,36">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="34.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.5,0"
-                    Point2="38.5,0"
-                    Point3="38.5,4" />
-                  <mssgle:LineSegment
-                    End="38.5,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="38.5,32"
-                    Point2="38.5,36"
-                    Point3="42.5,36" />
-                  <mssgle:LineSegment
-                    End="69.5,36" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7946,39 +7900,39 @@ from t_structured order by time</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\Datu kvalitate 1\OLE DB Destination"
-          TopLeft="389,358" />
-        <NodeLayout
           Size="142,42"
           Id="Package\Datu kvalitate 1\ODBC Source"
           TopLeft="183,178" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Datu kvalitate 1\OLE DB Destination"
+          TopLeft="390,359" />
         <EdgeLayout
           Id="Package\Datu kvalitate 1.Paths[ODBC Source Output]"
           TopLeft="254,220">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="220.5,138"
+              EndConnector="221.5,139"
               Start="0,0"
-              End="220.5,130.5">
+              End="221.5,131.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65" />
+                    End="0,65.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,65"
-                    Point2="0,69"
-                    Point3="4,69" />
+                    Point1="0,65.5"
+                    Point2="0,69.5"
+                    Point3="4,69.5" />
                   <mssgle:LineSegment
-                    End="216.5,69" />
+                    End="217.5,69.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="216.5,69"
-                    Point2="220.5,69"
-                    Point3="220.5,73" />
+                    Point1="217.5,69.5"
+                    Point2="221.5,69.5"
+                    Point3="221.5,73.5" />
                   <mssgle:LineSegment
-                    End="220.5,130.5" />
+                    End="221.5,131.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7990,19 +7944,6 @@ from t_structured order by time</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Datu kvalitate 1\ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Datu kvalitate 1\OLE DB Destination">
     <Properties>
@@ -8100,9 +8041,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8138,7 +8077,7 @@ from t_structured order by time</property>
     design-time-name="Package\maxMinuteTag">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
           Id="Package\maxMinuteTag\OLE DB Source"
@@ -8178,9 +8117,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8211,7 +8148,7 @@ from t_structured order by time</property>
     design-time-name="Package\Pivot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
           Id="Package\Pivot\OLE DB Source"
@@ -8259,9 +8196,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8295,9 +8230,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8331,9 +8264,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8412,9 +8343,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8436,9 +8365,7 @@ from t_structured order by time</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
